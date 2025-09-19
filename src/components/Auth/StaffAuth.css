@@ -1,0 +1,409 @@
+/* Business Staff Authentication Styles */
+.business-auth-container {
+  min-height: 100vh;
+  display: flex;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #F9FAFB;
+}
+
+.business-auth-sidebar {
+  flex: 1;
+  background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+  color: white;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.business-auth-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.business-branding {
+  position: relative;
+  z-index: 1;
+}
+
+.business-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.business-brand-info h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.025em;
+}
+
+.business-brand-info span {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.business-features {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.business-feature {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.business-feature .feature-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.business-feature h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: white;
+}
+
+.business-feature p {
+  font-size: 0.875rem;
+  color: #D1D5DB;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.business-auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: white;
+}
+
+.business-auth-content {
+  width: 100%;
+  max-width: 420px;
+}
+
+.business-auth-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.business-auth-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.025em;
+}
+
+.business-auth-header p {
+  font-size: 1rem;
+  color: #6B7280;
+  margin: 0;
+  font-weight: 400;
+}
+
+.business-auth-form {
+  margin-bottom: 32px;
+}
+
+.business-form-group {
+  margin-bottom: 24px;
+}
+
+.business-form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.business-form-group label svg {
+  color: #6B7280;
+}
+
+.business-form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #F9FAFB;
+  color: #111827;
+  box-sizing: border-box;
+}
+
+.business-form-group input:focus {
+  outline: none;
+  border-color: #3B82F6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.business-form-group input::placeholder {
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.business-auth-button {
+  width: 100%;
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.business-auth-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+}
+
+.business-auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.business-error-message {
+  background: rgba(239, 68, 68, 0.05);
+  color: #DC2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.business-auth-footer {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 24px;
+}
+
+.business-security-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.business-security-notice svg {
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+.business-security-notice span {
+  font-size: 0.8rem;
+  color: #15803D;
+  font-weight: 500;
+}
+
+.business-back-button {
+  background: none;
+  border: none;
+  color: #6B7280;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.business-back-button:hover {
+  color: #374151;
+  background: #F3F4F6;
+}
+
+.business-help-text {
+  text-align: center;
+}
+
+.business-help-text small {
+  color: #9CA3AF;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .business-auth-container {
+    flex-direction: column;
+  }
+
+  .business-auth-sidebar {
+    flex: none;
+    padding: 32px 24px;
+    min-height: auto;
+  }
+
+  .business-features {
+    flex-direction: row;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .business-feature {
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .business-feature .feature-icon {
+    align-self: center;
+  }
+
+  .business-auth-main {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .business-auth-sidebar {
+    padding: 24px 20px;
+  }
+
+  .business-branding {
+    text-align: center;
+  }
+
+  .business-brand-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .business-features {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .business-feature {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .business-auth-main {
+    padding: 24px 20px;
+  }
+
+  .business-auth-content {
+    max-width: 100%;
+  }
+
+  .business-auth-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .business-auth-container {
+    min-height: 100vh;
+  }
+
+  .business-auth-sidebar {
+    padding: 20px 16px;
+  }
+
+  .business-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .business-brand-info h1 {
+    font-size: 1.375rem;
+  }
+
+  .business-features {
+    margin-top: 20px;
+  }
+
+  .business-feature {
+    gap: 12px;
+  }
+
+  .business-feature .feature-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+  }
+
+  .business-auth-main {
+    padding: 20px 16px;
+  }
+
+  .business-form-group input {
+    padding: 14px 16px;
+  }
+
+  .business-auth-button {
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+}
