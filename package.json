@@ -16,7 +16,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://Clement2909.github.io/scandale_bouffe_website",
+  "homepage": "https://Clement2909.github.io/scandale_bouffe_client",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

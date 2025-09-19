@@ -43,11 +43,12 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 
 function App() {
   return (
-    <Router basename="/scandale_bouffe_website">
+    <Router basename="/scandale_bouffe_client">
       <div className="App">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/client" element={<Home />} />
           <Route path="/staff" element={<StaffHome />} />
           <Route path="/client/login" element={<ClientLogin />} />
           <Route path="/client/register" element={<ClientRegister />} />
