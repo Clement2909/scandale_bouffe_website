@@ -43,7 +43,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/scandale_bouffe_website">
       <div className="App">
         <Routes>
           {/* Public Routes */}
