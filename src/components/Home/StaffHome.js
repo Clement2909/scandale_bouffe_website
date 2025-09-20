@@ -11,7 +11,7 @@ const StaffHome = () => {
       <header className="portal-header">
         <div className="header-content">
           <div className="brand-section">
-            <img src="/images/scandale_logo.jpg" alt="Scandale Bouffe" className="brand-logo" />
+            <img src="/scandale_bouffe_website/images/scandale_logo.jpg" alt="Scandale Bouffe" className="brand-logo" />
             <div className="brand-info">
               <h1>Scandale Bouffe</h1>
               <span>Business Portal</span>

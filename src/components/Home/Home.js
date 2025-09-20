@@ -11,7 +11,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <img src="/images/scandale_logo.jpg" alt="Scandale Bouffe" className="hero-logo" />
+          <img src="/scandale_bouffe_website/images/scandale_logo.jpg" alt="Scandale Bouffe" className="hero-logo" />
           <h1 className="hero-title">Scandale Bouffe</h1>
           <p className="hero-subtitle">L'Art Culinaire Malgache</p>
           <p className="hero-description">

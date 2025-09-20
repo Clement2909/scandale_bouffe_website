@@ -62,7 +62,7 @@ const ClientRegister = () => {
       <div className="restaurant-auth-content">
         <div className="restaurant-auth-card register-card">
           <div className="restaurant-auth-header">
-            <img src="/images/scandale_logo.jpg" alt="Scandale Bouffe" className="restaurant-auth-logo" />
+            <img src="/scandale_bouffe_website/images/scandale_logo.jpg" alt="Scandale Bouffe" className="restaurant-auth-logo" />
             <h1>Scandale Bouffe</h1>
             <p>L'Art Culinaire Malgache</p>
             <h2>Rejoindre Notre Communauté</h2>

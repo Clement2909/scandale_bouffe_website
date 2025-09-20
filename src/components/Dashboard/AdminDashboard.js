@@ -35,7 +35,7 @@ const AdminDashboard = () => {
     <div className="dashboard-container">
       <header className="dashboard-header">
         <div className="header-left">
-          <img src="/images/scandale_logo.jpg" alt="Scandale Bouffe" className="header-logo" />
+          <img src="/scandale_bouffe_website/images/scandale_logo.jpg" alt="Scandale Bouffe" className="header-logo" />
           <h1>Tableau de Bord - Administrateur</h1>
         </div>
         <div className="header-right">

@@ -69,7 +69,7 @@ const StaffLogin = () => {
     <div className="business-auth-container">
       <div className="business-auth-sidebar">
         <div className="business-branding">
-          <img src="/images/scandale_logo.jpg" alt="Scandale Bouffe" className="business-logo" />
+          <img src="/scandale_bouffe_website/images/scandale_logo.jpg" alt="Scandale Bouffe" className="business-logo" />
           <div className="business-brand-info">
             <h1>Scandale Bouffe</h1>
             <span>Business Portal</span>
