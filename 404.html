@@ -1,72 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/images/scandale_logo.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#8B4513" />
-    <meta
-      name="description"
-      content="Scandale Bouffe - Restaurant Management System"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/scandale_logo.jpg" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Scandale Bouffe - Restaurant Management</title>
-    <script>
-  (function () {
-    try {
-      var r = sessionStorage.getItem("__gh_redirect");
-      if (r) {
-        sessionStorage.removeItem("__gh_redirect");
-        history.replaceState(null, null, r);
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scandale Bouffe</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+        color: white;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-    } catch (e) {}
-  })();
-</script>
-
-    <!-- Start Single Page Apps for GitHub Pages -->
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
-    </script>
-    <!-- End Single Page Apps for GitHub Pages -->
+      .container {
+        text-align: center;
+        max-width: 600px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto 30px;
+        object-fit: cover;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin: 0 0 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .subtitle {
+        font-size: 1.2rem;
+        margin: 0 0 30px;
+        opacity: 0.9;
+        font-style: italic;
+      }
+      .message {
+        font-size: 1.1rem;
+        margin: 20px 0;
+        opacity: 0.9;
+      }
+      .buttons {
+        margin: 30px 0;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        padding: 12px 24px;
+        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+      .auto-redirect {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        margin: 20px 0;
+      }
+      .spinner {
+        width: 30px;
+        height: 30px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-left: 3px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 15px auto;
+        display: none;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="container">
+      <img src="/scandale_bouffe_website/images/scandale_logo.jpg" alt="Scandale Bouffe" class="logo" />
+      <h1>Scandale Bouffe</h1>
+      <p class="subtitle">L'Art Culinaire Malgache</p>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <div id="message" class="message">Page introuvable</div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <div class="buttons">
+        <a href="/scandale_bouffe_website/" class="btn" id="clientBtn">Espace Client</a>
+        <a href="/scandale_bouffe_website/?staff=true" class="btn" id="staffBtn">Espace Personnel</a>
+      </div>
+
+      <div id="autoRedirect" class="auto-redirect" style="display: none;">
+        <div class="spinner"></div>
+        <span id="redirectText">Redirection automatique...</span>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      (function() {
+        var l = window.location;
+        var path = l.pathname;
+        var isStaff = false;
+        var isClient = false;
+        var shouldAutoRedirect = false;
+
+        // Détecter le type d'utilisateur selon l'URL
+        if (path.includes('/staff') || path.includes('/admin') || path.includes('/employee')) {
+          isStaff = true;
+          shouldAutoRedirect = true;
+        } else if (path.includes('/client')) {
+          isClient = true;
+          shouldAutoRedirect = true;
+        }
+
+        // Mettre à jour l'interface selon le contexte
+        var messageEl = document.getElementById('message');
+        var clientBtn = document.getElementById('clientBtn');
+        var staffBtn = document.getElementById('staffBtn');
+        var autoRedirectEl = document.getElementById('autoRedirect');
+        var redirectTextEl = document.getElementById('redirectText');
+
+        if (shouldAutoRedirect) {
+          // Masquer les boutons et afficher la redirection auto
+          document.querySelector('.buttons').style.display = 'none';
+          autoRedirectEl.style.display = 'block';
+          document.querySelector('.spinner').style.display = 'block';
+
+          if (isStaff) {
+            messageEl.textContent = 'Redirection vers l\'espace personnel...';
+            redirectTextEl.textContent = 'Accès à votre espace de travail';
+            setTimeout(function() {
+              window.location.href = '/scandale_bouffe_website/?staff=true';
+            }, 2000);
+          } else if (isClient) {
+            messageEl.textContent = 'Redirection vers l\'espace client...';
+            redirectTextEl.textContent = 'Accès à votre espace membre';
+            setTimeout(function() {
+              window.location.href = '/scandale_bouffe_website/';
+            }, 2000);
+          }
+        } else {
+          // Page d'erreur normale avec choix
+          if (isStaff) {
+            messageEl.textContent = 'Choisissez votre espace d\'accès';
+            staffBtn.style.background = 'rgba(255, 255, 255, 0.3)';
+          } else if (isClient) {
+            messageEl.textContent = 'Choisissez votre espace d\'accès';
+            clientBtn.style.background = 'rgba(255, 255, 255, 0.3)';
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
