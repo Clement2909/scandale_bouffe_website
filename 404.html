@@ -111,60 +111,45 @@
       </div>
     </div>
 
+    <!-- Script corrigé : enregistre la route, puis renvoie vers l'index du project-site -->
     <script type="text/javascript">
-      (function() {
-        var l = window.location;
-        var path = l.pathname;
-        var isStaff = false;
-        var isClient = false;
-        var shouldAutoRedirect = false;
+      (function () {
+        // 1) mémoriser l’URL réelle demandée (ex: /scandale_bouffe_website/staff?x#y)
+        var wanted =
+          window.location.pathname.replace(/\/+$/, "") +
+          window.location.search +
+          window.location.hash;
 
-        // Détecter le type d'utilisateur selon l'URL
-        if (path.includes('/staff') || path.includes('/admin') || path.includes('/employee')) {
-          isStaff = true;
-          shouldAutoRedirect = true;
-        } else if (path.includes('/client')) {
-          isClient = true;
-          shouldAutoRedirect = true;
+        try {
+          sessionStorage.setItem("__gh_redirect", wanted);
+        } catch (e) {
+          // si sessionStorage indisponible, on n'empêche pas la redirection
         }
 
-        // Mettre à jour l'interface selon le contexte
-        var messageEl = document.getElementById('message');
-        var clientBtn = document.getElementById('clientBtn');
-        var staffBtn = document.getElementById('staffBtn');
-        var autoRedirectEl = document.getElementById('autoRedirect');
-        var redirectTextEl = document.getElementById('redirectText');
+        // 2) mettre à jour l’UI (optionnel, ton design reste)
+        var messageEl = document.getElementById("message");
+        var autoRedirectEl = document.getElementById("autoRedirect");
+        var spinnerEl = document.querySelector(".spinner");
 
-        if (shouldAutoRedirect) {
-          // Masquer les boutons et afficher la redirection auto
-          document.querySelector('.buttons').style.display = 'none';
-          autoRedirectEl.style.display = 'block';
-          document.querySelector('.spinner').style.display = 'block';
+        if (messageEl) messageEl.textContent = "Redirection vers l’accueil…";
+        if (autoRedirectEl) autoRedirectEl.style.display = "block";
+        if (spinnerEl) spinnerEl.style.display = "block";
+        var buttons = document.querySelector(".buttons");
+        if (buttons) buttons.style.display = "none";
 
-          if (isStaff) {
-            messageEl.textContent = 'Redirection vers l\'espace personnel...';
-            redirectTextEl.textContent = 'Accès à votre espace de travail';
-            setTimeout(function() {
-              window.location.href = '/scandale_bouffe_website/?staff=true';
-            }, 2000);
-          } else if (isClient) {
-            messageEl.textContent = 'Redirection vers l\'espace client...';
-            redirectTextEl.textContent = 'Accès à votre espace membre';
-            setTimeout(function() {
-              window.location.href = '/scandale_bouffe_website/';
-            }, 2000);
-          }
-        } else {
-          // Page d'erreur normale avec choix
-          if (isStaff) {
-            messageEl.textContent = 'Choisissez votre espace d\'accès';
-            staffBtn.style.background = 'rgba(255, 255, 255, 0.3)';
-          } else if (isClient) {
-            messageEl.textContent = 'Choisissez votre espace d\'accès';
-            clientBtn.style.background = 'rgba(255, 255, 255, 0.3)';
-          }
-        }
+        // 3) rediriger vers l’index de ton project-site (IMPORTANT : chemin absolu)
+        //    si c'était un user/org site, on mettrait simplement "/"
+        window.location.replace("/scandale_bouffe_website/");
       })();
     </script>
+
+    <!-- Fallback si JS est désactivé -->
+    <noscript>
+      <style>.buttons{display:block!important}</style>
+      <div style="text-align:center;margin-top:10px">
+        Activez JavaScript pour être redirigé automatiquement.<br/>
+        Sinon, utilisez les boutons ci-dessus.
+      </div>
+    </noscript>
   </body>
 </html>
