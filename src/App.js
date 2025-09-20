@@ -42,13 +42,16 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 };
 
 function App() {
+  // Check URL parameters for staff access
+  const urlParams = new URLSearchParams(window.location.search);
+  const isStaffAccess = urlParams.get('staff') === 'true';
+
   return (
-    <Router basename="/scandale_bouffe_client">
+    <Router>
       <div className="App">
         <Routes>
           {/* Public Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/client" element={<Home />} />
+          <Route path="/" element={isStaffAccess ? <StaffHome /> : <Home />} />
           <Route path="/staff" element={<StaffHome />} />
           <Route path="/client/login" element={<ClientLogin />} />
           <Route path="/client/register" element={<ClientRegister />} />

@@ -2,6 +2,7 @@
   "name": "scandale_bouffe_website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://clement2909.github.io/scandale_bouffe_website",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
@@ -16,12 +17,13 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://Clement2909.github.io/scandale_bouffe_client",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
