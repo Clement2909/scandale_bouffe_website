@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/scandale_bouffe_website/static/css/main.3c38b883.css",
-    "main.js": "/scandale_bouffe_website/static/js/main.1c741338.js",
+    "main.js": "/scandale_bouffe_website/static/js/main.be306e6d.js",
     "static/js/453.bb02ef96.chunk.js": "/scandale_bouffe_website/static/js/453.bb02ef96.chunk.js",
     "index.html": "/scandale_bouffe_website/index.html",
     "main.3c38b883.css.map": "/scandale_bouffe_website/static/css/main.3c38b883.css.map",
-    "main.1c741338.js.map": "/scandale_bouffe_website/static/js/main.1c741338.js.map",
+    "main.be306e6d.js.map": "/scandale_bouffe_website/static/js/main.be306e6d.js.map",
     "453.bb02ef96.chunk.js.map": "/scandale_bouffe_website/static/js/453.bb02ef96.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c38b883.css",
-    "static/js/main.1c741338.js"
+    "static/js/main.be306e6d.js"
   ]
 }
