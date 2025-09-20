@@ -112,58 +112,31 @@
     </div>
 
     <script type="text/javascript">
+      // SPA redirect script pour GitHub Pages
       (function() {
+        var pathSegmentsToKeep = 1;
         var l = window.location;
-        var path = l.pathname;
-        var isStaff = false;
-        var isClient = false;
-        var shouldAutoRedirect = false;
 
-        // Détecter le type d'utilisateur selon l'URL
-        if (path.includes('/staff') || path.includes('/admin') || path.includes('/employee')) {
-          isStaff = true;
-          shouldAutoRedirect = true;
-        } else if (path.includes('/client')) {
-          isClient = true;
-          shouldAutoRedirect = true;
-        }
+        // Construire l'URL de redirection pour SPA
+        var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash;
 
-        // Mettre à jour l'interface selon le contexte
+        // Afficher un message de redirection
         var messageEl = document.getElementById('message');
-        var clientBtn = document.getElementById('clientBtn');
-        var staffBtn = document.getElementById('staffBtn');
         var autoRedirectEl = document.getElementById('autoRedirect');
-        var redirectTextEl = document.getElementById('redirectText');
+        var spinnerEl = document.querySelector('.spinner');
+        var buttonsEl = document.querySelector('.buttons');
 
-        if (shouldAutoRedirect) {
-          // Masquer les boutons et afficher la redirection auto
-          document.querySelector('.buttons').style.display = 'none';
-          autoRedirectEl.style.display = 'block';
-          document.querySelector('.spinner').style.display = 'block';
+        if (messageEl) messageEl.textContent = 'Redirection en cours...';
+        if (autoRedirectEl) autoRedirectEl.style.display = 'block';
+        if (spinnerEl) spinnerEl.style.display = 'block';
+        if (buttonsEl) buttonsEl.style.display = 'none';
 
-          if (isStaff) {
-            messageEl.textContent = 'Redirection vers l\'espace personnel...';
-            redirectTextEl.textContent = 'Accès à votre espace de travail';
-            setTimeout(function() {
-              window.location.href = '/scandale_bouffe_website/?staff=true';
-            }, 2000);
-          } else if (isClient) {
-            messageEl.textContent = 'Redirection vers l\'espace client...';
-            redirectTextEl.textContent = 'Accès à votre espace membre';
-            setTimeout(function() {
-              window.location.href = '/scandale_bouffe_website/';
-            }, 2000);
-          }
-        } else {
-          // Page d'erreur normale avec choix
-          if (isStaff) {
-            messageEl.textContent = 'Choisissez votre espace d\'accès';
-            staffBtn.style.background = 'rgba(255, 255, 255, 0.3)';
-          } else if (isClient) {
-            messageEl.textContent = 'Choisissez votre espace d\'accès';
-            clientBtn.style.background = 'rgba(255, 255, 255, 0.3)';
-          }
-        }
+        // Redirection immédiate
+        l.replace(redirect);
       })();
     </script>
   </body>
