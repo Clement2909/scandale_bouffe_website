@@ -1,25 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Scandale Bouffe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scandale Bouffe - Redirection</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+        color: white;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        text-align: center;
+        max-width: 500px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        object-fit: cover;
+      }
+      h1 {
+        font-size: 2rem;
+        margin: 0 0 10px;
+      }
+      p {
+        font-size: 1.1rem;
+        margin: 20px 0;
+        opacity: 0.9;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-left: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      var pathSegmentsToKeep = 1;
+      // SPA redirect pour les applications React
+      (function() {
+        var pathSegmentsToKeep = 1;
+        var l = window.location;
 
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+        // Construire l'URL de redirection
+        var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash;
 
+        // Redirection immédiate
+        l.replace(redirect);
+      })();
     </script>
   </head>
   <body>
+    <div class="container">
+      <img src="/scandale_bouffe_website/images/scandale_logo.jpg" alt="Scandale Bouffe" class="logo" />
+      <h1>Scandale Bouffe</h1>
+      <p>Redirection en cours...</p>
+      <div class="spinner"></div>
+      <p style="font-size: 0.9rem; opacity: 0.7;">Vous allez être redirigé automatiquement</p>
+    </div>
   </body>
 </html>
